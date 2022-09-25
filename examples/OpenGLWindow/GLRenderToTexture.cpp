@@ -32,11 +32,11 @@ void GLRenderToTexture::init(int width, int height, GLuint textureId, int render
 	glBindFramebuffer(GL_FRAMEBUFFER, m_framebufferName);
 
 	// The depth buffer
-	//	glGenRenderbuffers(1, &m_depthrenderbuffer);
+	glGenRenderbuffers(1, &m_depthrenderbuffer);
 
-	//	glBindRenderbuffer(GL_RENDERBUFFER, m_depthrenderbuffer);
-	//	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, width, height);
-	//	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, m_depthrenderbuffer);
+	glBindRenderbuffer(GL_RENDERBUFFER, m_depthrenderbuffer);
+	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, width, height);
+	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, m_depthrenderbuffer);
 
 	switch (m_renderTextureType)
 	{
