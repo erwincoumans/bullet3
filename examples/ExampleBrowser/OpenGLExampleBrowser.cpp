@@ -148,7 +148,7 @@ int gSharedMemoryKey = -1;
 int gPreferredOpenCLDeviceIndex = -1;
 int gPreferredOpenCLPlatformIndex = -1;
 int gGpuArraySizeX = 45;
-int gGpuArraySizeY = 55;
+int gGpuArraySizeY = 45;
 int gGpuArraySizeZ = 45;
 
 //#include <float.h>
@@ -897,6 +897,10 @@ bool OpenGLExampleBrowser::init(int argc, char* argv[])
 	{
 		args.GetCmdLineArgument("max_shape_capacity_in_bytes", max_shape_capacity_in_bytes);
 	}
+
+	args.GetCmdLineArgument("gpu_array_size_x", gGpuArraySizeX);
+	args.GetCmdLineArgument("gpu_array_size_y", gGpuArraySizeY);
+	args.GetCmdLineArgument("gpu_array_size_z", gGpuArraySizeZ);
 
 
 #else

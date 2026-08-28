@@ -37,6 +37,9 @@
 		"../../src/BulletCollision/CollisionShapes/btConvexInternalShape.cpp",
 		"../../src/BulletCollision/CollisionShapes/btCollisionShape.cpp",
 		"../../src/BulletCollision/CollisionShapes/btConvexPolyhedron.cpp",
+		"../../src/BulletCollision/CollisionShapes/btHeightfieldTerrainShape.cpp",
+		"../../src/BulletCollision/CollisionShapes/btConcaveShape.cpp",
+		"../../src/BulletCollision/CollisionShapes/btTriangleCallback.cpp",
 
 	}
 

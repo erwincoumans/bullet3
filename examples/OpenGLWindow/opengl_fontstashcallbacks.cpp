@@ -102,6 +102,7 @@ void InternalOpenGL2RenderCallbacks::updateTexture(sth_texture* texture, sth_gly
 		assert(glGetError() == GL_NO_ERROR);
 
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RED, textureWidth, textureHeight, 0, GL_RED, GL_UNSIGNED_BYTE, texture->m_texels);
+		glGenerateMipmap(GL_TEXTURE_2D);
 
 		assert(glGetError() == GL_NO_ERROR);
 	}
@@ -119,10 +120,11 @@ void InternalOpenGL2RenderCallbacks::updateTexture(sth_texture* texture, sth_gly
 			glBindTexture(GL_TEXTURE_2D, *texId);
 			texture->m_texels = (unsigned char*)malloc(textureWidth * textureHeight);
 			memset(texture->m_texels, 0, textureWidth * textureHeight);
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RED, textureWidth, textureHeight, 0, GL_RED, GL_UNSIGNED_BYTE, texture->m_texels);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-			assert(glGetError() == GL_NO_ERROR);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RED, textureWidth, textureHeight, 0, GL_RED, GL_UNSIGNED_BYTE, texture->m_texels);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glGenerateMipmap(GL_TEXTURE_2D);
+		assert(glGetError() == GL_NO_ERROR);
 
 			////////////////////////////
 			//create the other data

@@ -5724,6 +5724,8 @@ bool PhysicsServerCommandProcessor::processRequestMeshDataCommand(const struct S
 bool PhysicsServerCommandProcessor::processRequestTetraMeshDataCommand(const struct SharedMemoryCommand& clientCmd, struct SharedMemoryStatus& serverStatusOut, char* bufferServerToClient, int bufferSizeInBytes)
 {
 	bool hasStatus = true;
+#ifndef SKIP_SOFT_BODY_MULTI_BODY_DYNAMICS_WORLD
+
 	BT_PROFILE("CMD_REQUEST_TETRA_MESH_DATA");
 	serverStatusOut.m_type = CMD_REQUEST_TETRA_MESH_DATA_FAILED;
 	serverStatusOut.m_numDataStreamBytes = 0;
@@ -5762,6 +5764,7 @@ bool PhysicsServerCommandProcessor::processRequestTetraMeshDataCommand(const str
 	}
 
 	serverStatusOut.m_numDataStreamBytes = sizeInBytes;
+#endif //SKIP_SOFT_BODY_MULTI_BODY_DYNAMICS_WORLD
 
 	return hasStatus;
 }
